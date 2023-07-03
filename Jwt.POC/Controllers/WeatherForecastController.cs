@@ -26,6 +26,7 @@ namespace Jwt.POC.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var user = _httpContext.User.Identity.Name;
+            _logger.LogInformation(user);
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
